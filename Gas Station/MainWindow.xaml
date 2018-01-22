@@ -18,12 +18,13 @@
             <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Магазин" DockPanel.Dock="Left" HorizontalAlignment="Left" FontSize="20" FontFamily="Verdana" FontStyle="Italic" TextDecorations="{x:Null}" FontWeight="Bold" Margin="5,0,0,0"/>
-        <TextBlock Text="Бензин" DockPanel.Dock="Left" FontSize="20" FontFamily="Verdana" FontStyle="Italic" TextDecorations="{x:Null}" FontWeight="Bold" Margin="0" Grid.Column="1" HorizontalAlignment="Left"/>
-        <TextBlock Text="Корзина" DockPanel.Dock="Right" HorizontalAlignment="Left" FontFamily="Verdana" FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="0,0,5,0" Foreground="Black" Grid.Column="2"/>
+        <TextBlock Text="Магазин" FontSize="20" FontFamily="Verdana" FontStyle="Italic" TextDecorations="{x:Null}" FontWeight="Bold" Margin="0" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Padding="10,0,0,0"/>
+        <TextBlock Text="Бензин"  FontSize="20" FontFamily="Verdana" FontStyle="Italic" TextDecorations="{x:Null}" FontWeight="Bold" Margin="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Padding="10,0,0,0"/>
+        <TextBlock Text="Корзина" FontFamily="Verdana" FontSize="20" FontWeight="Bold" FontStyle="Italic" Margin="0" Foreground="Black" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Padding="10,0,0,0"/>
+        <Button Name="deleteAllButton" Content="Удалить все" Grid.Column="2" HorizontalAlignment="Right" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" FontSize="14" BorderThickness="0" Padding="3,1" Click="DeleteAllButton_Click"/>
 
         <DataGrid Name="marketGrid" FontFamily="Verdana" CanUserAddRows="False" AutoGenerateColumns="False"
-                      IsReadOnly="True" Grid.Row="1" FontSize="10">
+                      IsReadOnly="True" Grid.Row="1" FontSize="10" Background="{x:Null}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название продукта" Binding="{Binding Path=Name}" FontSize="14"/>
                 <DataGridTextColumn Header="Цена тг" Binding="{Binding Path=Price}" FontSize="14"/>
@@ -41,13 +42,13 @@
                       Grid.Row="1" Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Тип" Binding="{Binding Path=Name}" CanUserResize="False" FontSize="14"/>
-                <DataGridTextColumn Header="Цена за литр (тг)" Binding="{Binding Path=litrePrice}" FontSize="14"/>
-                <DataGridTextColumn Header="Кол-во" FontSize="14" />
+                <DataGridTextColumn Header="Цена за литр (тг)" Binding="{Binding Path=LitrePrice}" FontSize="14"/>
+                <DataGridTextColumn Header="Объем (л)" Binding="{Binding Path=Amount}" FontSize="14" />
             </DataGrid.Columns>
         </DataGrid>
 
         <DockPanel Grid.Row="1" Grid.Column="2">
-            <Button Name="calculateButton" Content="Рассчет" VerticalAlignment="Center" DockPanel.Dock="Bottom" FontSize="18" Click="СalculateButton_Click"/>
+            <Button Name="calculateButton" Content="Оформить заказ" VerticalAlignment="Center" DockPanel.Dock="Bottom" FontSize="18" Click="СalculateButton_Click" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" BorderBrush="{x:Null}" FontWeight="Bold" BorderThickness="0"/>
 
             <DataGrid Name="cartGrid" DockPanel.Dock="Top" FontFamily="Verdana" FontSize="10" CanUserAddRows="False" AutoGenerateColumns="False"
                       IsReadOnly="True" Margin="0">
@@ -65,5 +66,6 @@
             </DataGrid>
 
         </DockPanel>
+        
     </Grid>
 </Window>

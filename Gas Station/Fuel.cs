@@ -9,6 +9,7 @@ namespace Gas_Station
     public class Fuel
     {
         public string Name { get; set; }
-        public double litrePrice { get; set; }
+        public double LitrePrice { get; set; }
+        public double Amount { get; set; }
     }
 }
